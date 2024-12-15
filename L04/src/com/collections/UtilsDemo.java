@@ -6,8 +6,12 @@ public class UtilsDemo {
 
     public static void main(String[] args) {
         Integer [] arr = {34,23,56,78};
-        Arrays.sort(arr);
-        System.out.println(Arrays.toString(arr));;
+        Arrays.sort(arr) ;
+        System.out.println(Arrays.toString(arr));
+
+        String [] names = {"Avik", "def", "Neeraj", "Animesh"};
+        Arrays.sort(names, Collections.reverseOrder());
+        System.out.println(Arrays.toString(names));
 
         List<Integer> list = Arrays.asList(arr);
         //list.add(-10);
