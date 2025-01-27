@@ -6,6 +6,8 @@ import com.gfg.L10_restfull_services_aop_demo.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
 
@@ -30,4 +32,7 @@ public class ProductService {
         return productDAO.delete(id);
     }
 
+    public List<Product> getAllProducts() {
+        return productDAO.getAllProducts();
+    }
 }

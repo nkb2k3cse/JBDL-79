@@ -13,6 +13,7 @@ public class AppController {
 
     private static Logger LOGGER = LoggerFactory.getLogger(AppController.class);
 
+
     @Autowired
     private ProductService productService;
 
@@ -28,6 +29,7 @@ public class AppController {
     @GetMapping("/products")
     public List<Product> getProducts(){
         LOGGER.info("Processing request...");
+        LOGGER.
         return productService.getAllProducts();
     }
 

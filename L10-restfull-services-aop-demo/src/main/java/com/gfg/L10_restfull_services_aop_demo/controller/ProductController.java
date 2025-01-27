@@ -1,6 +1,7 @@
 package com.gfg.L10_restfull_services_aop_demo.controller;
 
 
+import ch.qos.logback.core.util.StringUtil;
 import com.gfg.L10_restfull_services_aop_demo.entity.Product;
 import com.gfg.L10_restfull_services_aop_demo.service.ProductService;
 import lombok.Getter;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/product")
@@ -28,11 +30,22 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<Product>> getProducts(){
+        List<Product> productList = productService.getAllProducts();
+        if(productList == null){
+            //set response code 404
+            return ResponseEntity.notFound().build();// Builder Design Pattern
+        }
+        return ResponseEntity.ok(productList);
+    }
+
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) throws URISyntaxException {
         //long start = System.currentTimeMillis();
-        if(product.getName() == null ||"".equals( product.getName())){
+        if(StringUtil.isNullOrEmpty(product.getName())){
             return ResponseEntity.badRequest().build();
+
         }
         Product createdProduct = productService.create(product);
         URI uri = new URI("http://localhost:8080/product/"+createdProduct.getId());

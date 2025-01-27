@@ -37,6 +37,8 @@ public class AdminService {
         user.setEmail(userDto.getEmail());
         user.setName(userDto.getName());
         user.setRole(Role.SELLER);
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
         user =userRepo.save(user);
         company.setUser(user);
         companyRepo.save(company);

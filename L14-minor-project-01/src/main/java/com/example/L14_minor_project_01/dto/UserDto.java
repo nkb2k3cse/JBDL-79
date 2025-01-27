@@ -1,6 +1,6 @@
 package com.example.L14_minor_project_01.dto;
 
-public class UserDto {
+public class    UserDto {
 
     private String name;
     private String email;

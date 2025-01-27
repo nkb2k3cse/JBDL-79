@@ -1,22 +1,18 @@
 package com.gfg.L10_restfull_services_aop_demo.entity;
 
 
-//import lombok.AllArgsConstructor;
-//import lombok.Getter;
-//import lombok.NoArgsConstructor;
-//import lombok.Setter;
-//
-//@Setter
-//@Getter
+import lombok.*;
+
+@Data
 //@AllArgsConstructor
-//@NoArgsConstructor
+@NoArgsConstructor
 public class Product {
 
     private Long id;
     private String name;
     private Double cost;
 
-    public Product(Long id, String name, Double cost) {
+   public Product(Long id, String name, Double cost) {
         this.id = id;
         this.name = name;
         this.cost = cost;

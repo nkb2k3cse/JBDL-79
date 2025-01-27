@@ -16,7 +16,7 @@ public class OrderExpiryTask {
     private OrderRepo orderRepo;
 
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 50000)
     public void markOrderAsExpired(){
         LOGGER.info("Marking ORDERs as Expired");
         /*

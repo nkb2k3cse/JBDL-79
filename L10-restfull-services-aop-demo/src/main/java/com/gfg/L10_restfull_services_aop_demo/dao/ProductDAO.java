@@ -4,7 +4,9 @@ import com.gfg.L10_restfull_services_aop_demo.aspect.LogExecutionTime;
 import com.gfg.L10_restfull_services_aop_demo.entity.Product;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -45,4 +47,12 @@ public class ProductDAO {
     }
 
 
+    public List<Product> getAllProducts() {
+        List<Product> productList = new ArrayList<>();
+        for(Map.Entry<Long,Product> entry : dataStore.entrySet()){
+            productList.add(entry.getValue());
+
+        }
+        return productList;
+    }
 }

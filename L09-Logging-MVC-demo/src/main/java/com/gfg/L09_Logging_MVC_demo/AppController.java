@@ -11,6 +11,7 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("/nkb")
 public class AppController {
 
     private static Logger LOGGER = LoggerFactory.getLogger(AppController.class);
@@ -23,8 +24,8 @@ public class AppController {
 
 
     @GetMapping("/hello")
-    public String getMsg(@RequestParam(value = "n", required = false) String name){
-        return "Hello "+name+" from :"+Thread.currentThread().getName();
+    public String getMsg(@RequestParam(value = "name", required = false) String myName){
+        return "Hello "+myName+" from :"+Thread.currentThread().getName();
     }
 
     @GetMapping("/product/{id}")

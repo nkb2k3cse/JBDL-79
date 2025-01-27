@@ -33,4 +33,13 @@ public class GlobalExceptionHandler {
         responseDto.setCode(1002l);
         return ResponseEntity.badRequest().body(responseDto);
     }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<ErrorDto> handleInvalidProductException(ProductNotFoundException productNotFoundException){
+        ErrorDto errorDto = new ErrorDto();
+        errorDto.setMsg("Product Id does not exist, please use correct product id.");
+        errorDto.setCode(1003l);
+        return ResponseEntity.badRequest().body(errorDto);
+    }
+
 }
