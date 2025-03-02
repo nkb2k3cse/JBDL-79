@@ -5,19 +5,19 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
 @Setter
+@Getter
 @ToString
-public class UserDto {
-    @NotNull
-    private String name;
+public class TxnRequestDto {
 
     @NotNull
-    private String email;
+    private Long fromUserId;
 
     @NotNull
-    private String phone;
+    private Long toUserId;
 
     @NotNull
-    private String kycNumber;
+    private Double amount;
+
+    private String comment;
 }

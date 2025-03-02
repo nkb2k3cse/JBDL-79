@@ -11,23 +11,30 @@ import java.time.OffsetDateTime;
 @Entity
 @Setter
 @Getter
-public class User {
+public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
+    private String txnId;
+
     @Column(nullable = false)
-    private String name;
+    private Long fromUserId;
 
-    @Column(nullable = false, unique = true)
-    private String email;
+    @Column(nullable = false)
+    private Long toUserId;
 
-    @Column(nullable = false, unique = true)
-    private String phone;
+    @Column(nullable = false)
+    private Double amount;
 
-    @Column(nullable = false, unique = true)
-    private String kycNumber;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private TxnStatusEnum status;
+    private String reason;
+
+    private String comment;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
@@ -36,4 +43,6 @@ public class User {
     @UpdateTimestamp
     @Column(nullable = false)
     private OffsetDateTime lastUpdated;
+
+
 }
